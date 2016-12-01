@@ -1,0 +1,19 @@
+{
+  "author": {
+    "name": "sampson"
+  },
+  "dependencies": {},
+  "description": "转发请求，包括http还有https；测试的时候很方便",
+  "devDependencies": {},
+  "directories": {},
+
+  "license": "ISC",
+  "main": "index.js",
+ 
+  "name": "forward-request",
+ 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.2"
+}
