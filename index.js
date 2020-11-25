@@ -4,7 +4,18 @@
 const http = require('http');
 const https = require('https');
 
-function forward({req, resp, host, ip, port, path,showLog,isHttps}) {
+/**
+ *
+ * @param {{headers, originalUrl, method, url, on}} req -- 传入初始 request 即可
+ * @param {{writeHead: function, end: function}} resp -- 传入返回用户的 response 即可
+ * @param {string} host -- 转发主机名(可为空， 默认是当前请求的host）
+ * @param {string} ip -- 转发主机地址， 可以是ip 地址， 也可以是普通域名
+ * @param {number} port -- 转发端口（默认即可）
+ * @param {string} path -- 转发的路径(可为空， 默认为req.originalUrl)
+ * @param {boolean} showLog -- 是否打印转发日志 默认false
+ * @param {boolean} isHttps -- 是否为https转发
+ */
+function forward({req, resp, host, ip, port, path,showLog= false ,isHttps= false}) {
     delete req.headers['accept-encoding'];
     host && (req.headers['host'] = host);
     let clientRequest = (isHttps?https:http).request({
