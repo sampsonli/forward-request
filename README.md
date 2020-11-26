@@ -2,7 +2,9 @@
 1. 用法
 ```js
 const express = require('express');
+const forward = require('forward-request')
 const app = express(); // 实例化express服务
+
 app.use((req, resp, next) => {
      forward({
                 req,
